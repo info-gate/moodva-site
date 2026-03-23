@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moodva — AI Mood & Habit Journal</title>
+<meta name="description" content="Track your mood, build habits, and gain AI-powered insights with Moodva.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#F7F6F3;color:#3D3D3A;line-height:1.7;}
+nav{background:#1E1650;padding:16px 48px;display:flex;align-items:center;justify-content:center;}
+.logo{font-family:'DM Serif Display',serif;font-size:22px;color:white;text-decoration:none;}
+
+/* Hero */
+.hero{background:linear-gradient(135deg,#1E1650,#3730A3);padding:100px 48px 80px;text-align:center;}
+.hero-icon{width:88px;height:88px;background:rgba(255,255,255,0.15);border-radius:24px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:28px;font-size:42px;backdrop-filter:blur(8px);}
+.hero h1{font-family:'DM Serif Display',serif;font-size:52px;color:white;letter-spacing:-1px;margin-bottom:16px;}
+.hero p{font-size:18px;color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto 36px;}
+.cta{display:inline-block;background:white;color:#1E1650;padding:14px 36px;border-radius:100px;font-size:16px;font-weight:600;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;}
+.cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
+
+/* Features */
+.features-section{max-width:880px;margin:0 auto;padding:60px 24px;}
+.features-section h2{font-family:'DM Serif Display',serif;font-size:32px;text-align:center;color:#1A1A1A;margin-bottom:40px;}
+.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
+.feature-card{background:white;border-radius:16px;padding:28px 24px;border:0.5px solid #E0DEDB;transition:transform 0.2s,box-shadow 0.2s;}
+.feature-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.06);}
+.feature-card .icon{font-size:32px;margin-bottom:14px;}
+.feature-card h3{font-size:17px;font-weight:500;color:#1A1A1A;margin-bottom:8px;}
+.feature-card p{font-size:14px;color:#73726C;}
+
+/* Pro */
+.pro-section{max-width:640px;margin:0 auto;padding:20px 24px 60px;text-align:center;}
+.pro-card{background:linear-gradient(135deg,#1E1650,#3730A3);border-radius:20px;padding:40px 32px;color:white;}
+.pro-card h2{font-family:'DM Serif Display',serif;font-size:28px;margin-bottom:12px;}
+.pro-card p{font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:24px;}
+.pro-features{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px;}
+.pro-tag{background:rgba(255,255,255,0.15);padding:6px 16px;border-radius:100px;font-size:13px;color:rgba(255,255,255,0.9);}
+.pro-cta{display:inline-block;background:white;color:#1E1650;padding:12px 32px;border-radius:100px;font-size:15px;font-weight:600;text-decoration:none;}
+
+/* Footer */
+footer{background:#1A1A1A;padding:32px 48px;text-align:center;}
+footer p{font-size:13px;color:rgba(255,255,255,0.4);}
+footer a{color:rgba(255,255,255,0.5);text-decoration:none;}
+footer a:hover{color:white;}
+
+@media(max-width:600px){
+  nav{padding:14px 20px;}
+  .hero{padding:60px 20px 50px;}
+  .hero h1{font-size:36px;}
+  .features-section{padding:40px 16px;}
+  .pro-section{padding:10px 16px 40px;}
+  footer{padding:24px 20px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">moodva</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-icon">&#127793;</div>
+  <h1>Your mood, your growth.</h1>
+  <p>AI-powered mood tracking, habit building, and personal insights — all in one beautifully simple journal.</p>
+  <a class="cta" href="#">Coming Soon</a>
+</section>
+
+<section class="features-section">
+  <h2>Everything you need to grow</h2>
+  <div class="features">
+    <div class="feature-card">
+      <div class="icon">&#128522;</div>
+      <h3>Mood Tracking</h3>
+      <p>Log your daily mood with a single tap. See patterns over weeks and months with heatmaps.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">&#9989;</div>
+      <h3>Habit Building</h3>
+      <p>Build positive habits with streaks, reminders, and weekly progress tracking.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">&#128218;</div>
+      <h3>Journaling</h3>
+      <p>Write freely or use AI-generated prompts to reflect on your day.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">&#10024;</div>
+      <h3>AI Insights</h3>
+      <p>Get personalized weekly insights powered by Claude AI, based on your entries.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pro-section">
+  <div class="pro-card">
+    <h2>Moodva Pro</h2>
+    <p>Unlock the full power of your personal growth journey</p>
+    <div class="pro-features">
+      <span class="pro-tag">Weekly AI insights</span>
+      <span class="pro-tag">Unlimited habits</span>
+      <span class="pro-tag">Ad-free</span>
+      <span class="pro-tag">Advanced stats</span>
+    </div>
+    <a class="pro-cta" href="#">Starting at $4.99/mo</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Moodva. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms of Service</a></p>
+</footer>
+
+</body>
+</html>
