@@ -4,113 +4,274 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Moodva — AI Mood & Habit Journal</title>
-<meta name="description" content="Track your mood, build habits, and gain AI-powered insights with Moodva.">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<meta name="description" content="Moodva helps you understand your emotions, build lasting habits, and discover patterns in your wellbeing — powered by AI.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:#F7F6F3;color:#3D3D3A;line-height:1.7;}
-nav{background:#1E1650;padding:16px 48px;display:flex;align-items:center;justify-content:center;}
-.logo{font-family:'DM Serif Display',serif;font-size:22px;color:white;text-decoration:none;}
-
-/* Hero */
-.hero{background:linear-gradient(135deg,#1E1650,#3730A3);padding:100px 48px 80px;text-align:center;}
-.hero-icon{width:88px;height:88px;background:rgba(255,255,255,0.15);border-radius:24px;display:inline-flex;align-items:center;justify-content:center;margin-bottom:28px;font-size:42px;backdrop-filter:blur(8px);}
-.hero h1{font-family:'DM Serif Display',serif;font-size:52px;color:white;letter-spacing:-1px;margin-bottom:16px;}
-.hero p{font-size:18px;color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto 36px;}
-.cta{display:inline-block;background:white;color:#1E1650;padding:14px 36px;border-radius:100px;font-size:16px;font-weight:600;text-decoration:none;transition:transform 0.2s,box-shadow 0.2s;}
-.cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,0.2);}
-
-/* Features */
-.features-section{max-width:880px;margin:0 auto;padding:60px 24px;}
-.features-section h2{font-family:'DM Serif Display',serif;font-size:32px;text-align:center;color:#1A1A1A;margin-bottom:40px;}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;}
-.feature-card{background:white;border-radius:16px;padding:28px 24px;border:0.5px solid #E0DEDB;transition:transform 0.2s,box-shadow 0.2s;}
-.feature-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(0,0,0,0.06);}
-.feature-card .icon{font-size:32px;margin-bottom:14px;}
-.feature-card h3{font-size:17px;font-weight:500;color:#1A1A1A;margin-bottom:8px;}
-.feature-card p{font-size:14px;color:#73726C;}
-
-/* Pro */
-.pro-section{max-width:640px;margin:0 auto;padding:20px 24px 60px;text-align:center;}
-.pro-card{background:linear-gradient(135deg,#1E1650,#3730A3);border-radius:20px;padding:40px 32px;color:white;}
-.pro-card h2{font-family:'DM Serif Display',serif;font-size:28px;margin-bottom:12px;}
-.pro-card p{font-size:15px;color:rgba(255,255,255,0.7);margin-bottom:24px;}
-.pro-features{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:28px;}
-.pro-tag{background:rgba(255,255,255,0.15);padding:6px 16px;border-radius:100px;font-size:13px;color:rgba(255,255,255,0.9);}
-.pro-cta{display:inline-block;background:white;color:#1E1650;padding:12px 32px;border-radius:100px;font-size:15px;font-weight:600;text-decoration:none;}
-
-/* Footer */
-footer{background:#1A1A1A;padding:32px 48px;text-align:center;}
-footer p{font-size:13px;color:rgba(255,255,255,0.4);}
-footer a{color:rgba(255,255,255,0.5);text-decoration:none;}
-footer a:hover{color:white;}
-
-@media(max-width:600px){
-  nav{padding:14px 20px;}
-  .hero{padding:60px 20px 50px;}
-  .hero h1{font-size:36px;}
-  .features-section{padding:40px 16px;}
-  .pro-section{padding:10px 16px 40px;}
-  footer{padding:24px 20px;}
-}
+  :root {
+    --bg: #0A0A0F;
+    --bg2: #0F0F1A;
+    --purple: #7B6ECD;
+    --purple-light: #A89EE0;
+    --purple-dim: rgba(123,110,205,0.15);
+    --coral: #E8A598;
+    --teal: #6BC5B8;
+    --text: #F0EEF8;
+    --text-muted: rgba(240,238,248,0.45);
+    --text-dim: rgba(240,238,248,0.25);
+    --border: rgba(255,255,255,0.07);
+  }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'DM Sans', sans-serif; font-weight: 300; overflow-x: hidden; cursor: none; }
+  .cursor { position: fixed; width: 8px; height: 8px; background: var(--purple-light); border-radius: 50%; pointer-events: none; z-index: 9999; transition: transform 0.15s ease; mix-blend-mode: screen; }
+  .cursor-ring { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(168,158,224,0.4); border-radius: 50%; pointer-events: none; z-index: 9998; transition: all 0.3s ease; }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; background: linear-gradient(to bottom, rgba(10,10,15,0.9), transparent); backdrop-filter: blur(12px); }
+  .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; letter-spacing: 2px; color: var(--text); text-decoration: none; }
+  .nav-links { display: flex; gap: 40px; align-items: center; }
+  .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 13px; letter-spacing: 0.5px; transition: color 0.3s; }
+  .nav-links a:hover { color: var(--text); }
+  .nav-cta { background: var(--purple-dim) !important; border: 1px solid rgba(123,110,205,0.3) !important; color: var(--purple-light) !important; padding: 10px 24px !important; border-radius: 100px !important; font-size: 13px !important; transition: all 0.3s !important; }
+  .nav-cta:hover { background: rgba(123,110,205,0.25) !important; color: var(--text) !important; }
+  .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 120px 48px 80px; }
+  .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 20% 30%, rgba(123,110,205,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 70%, rgba(107,197,184,0.08) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 60% 20%, rgba(232,165,152,0.06) 0%, transparent 50%); }
+  .orb { position: absolute; border-radius: 50%; filter: blur(60px); animation: float 8s ease-in-out infinite; }
+  .orb-1 { width: 400px; height: 400px; background: rgba(123,110,205,0.12); top: -100px; left: -100px; animation-delay: 0s; }
+  .orb-2 { width: 300px; height: 300px; background: rgba(107,197,184,0.08); bottom: -50px; right: -50px; animation-delay: 3s; }
+  .orb-3 { width: 200px; height: 200px; background: rgba(232,165,152,0.07); top: 40%; right: 20%; animation-delay: 1.5s; }
+  @keyframes float { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }
+  .stars { position: absolute; inset: 0; overflow: hidden; }
+  .star { position: absolute; width: 1px; height: 1px; background: white; border-radius: 50%; animation: twinkle var(--dur) ease-in-out infinite; }
+  @keyframes twinkle { 0%, 100% { opacity: 0.1; } 50% { opacity: 0.6; } }
+  .hero-content { position: relative; z-index: 2; max-width: 800px; text-align: center; }
+  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(123,110,205,0.12); border: 1px solid rgba(123,110,205,0.25); padding: 8px 20px; border-radius: 100px; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--purple-light); margin-bottom: 40px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.2s; }
+  .badge-dot { width: 6px; height: 6px; background: var(--teal); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.8); } }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(52px, 8vw, 96px); font-weight: 300; line-height: 1.05; letter-spacing: -1px; margin-bottom: 28px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.4s; }
+  .hero-title em { font-style: italic; color: var(--purple-light); }
+  .hero-sub { font-size: 17px; color: var(--text-muted); line-height: 1.7; max-width: 520px; margin: 0 auto 48px; opacity: 0; animation: fadeUp 0.8s ease forwards 0.6s; }
+  .hero-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.8s ease forwards 0.8s; }
+  .btn-primary { display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(135deg, #7B6ECD, #4A3F9F); color: white; padding: 16px 36px; border-radius: 100px; text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.3px; box-shadow: 0 8px 32px rgba(123,110,205,0.35); transition: all 0.3s; position: relative; overflow: hidden; }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(123,110,205,0.5); }
+  .btn-secondary { display: inline-flex; align-items: center; gap: 10px; background: transparent; color: var(--text-muted); padding: 16px 36px; border-radius: 100px; text-decoration: none; font-size: 14px; border: 1px solid var(--border); transition: all 0.3s; }
+  .btn-secondary:hover { color: var(--text); border-color: rgba(255,255,255,0.15); background: rgba(255,255,255,0.04); }
+  .app-store-icon { width: 20px; height: 20px; }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  .scroll-hint { position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--text-dim); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0; animation: fadeUp 0.8s ease forwards 1.2s; }
+  .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, var(--text-dim), transparent); animation: scrollDown 2s ease-in-out infinite; }
+  @keyframes scrollDown { 0%, 100% { transform: scaleY(1); transform-origin: top; } 50% { transform: scaleY(0.5); transform-origin: bottom; } }
+  section { padding: 120px 48px; }
+  .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--purple-light); margin-bottom: 20px; display: block; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 58px); font-weight: 300; line-height: 1.1; margin-bottom: 20px; }
+  .section-title em { font-style: italic; color: var(--purple-light); }
+  .section-desc { font-size: 16px; color: var(--text-muted); line-height: 1.8; max-width: 480px; }
+  .features { background: var(--bg2); position: relative; overflow: hidden; }
+  .features::before { content: ''; position: absolute; top: -200px; left: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(123,110,205,0.06), transparent 70%); pointer-events: none; }
+  .features-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .features-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--border); border-radius: 24px; overflow: hidden; }
+  .feature-card { background: var(--bg); padding: 36px 32px; transition: background 0.3s; position: relative; overflow: hidden; }
+  .feature-card:hover { background: rgba(123,110,205,0.05); }
+  .feature-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 20px; }
+  .icon-purple { background: rgba(123,110,205,0.15); }
+  .icon-coral { background: rgba(232,165,152,0.15); }
+  .icon-teal { background: rgba(107,197,184,0.15); }
+  .icon-gold { background: rgba(255,210,100,0.15); }
+  .feature-name { font-size: 15px; font-weight: 500; margin-bottom: 10px; color: var(--text); }
+  .feature-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; }
+  .how { max-width: 1200px; margin: 0 auto; }
+  .how-header { text-align: center; margin-bottom: 80px; }
+  .how-header .section-desc { margin: 0 auto; text-align: center; }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); border-radius: 24px; overflow: hidden; }
+  .step { background: var(--bg); padding: 48px 40px; position: relative; }
+  .step-num { font-family: 'Cormorant Garamond', serif; font-size: 80px; font-weight: 300; color: var(--purple-dim); line-height: 1; margin-bottom: 24px; display: block; }
+  .step-title { font-size: 18px; font-weight: 500; margin-bottom: 12px; }
+  .step-desc { font-size: 14px; color: var(--text-muted); line-height: 1.8; }
+  .step-accent { position: absolute; top: 0; left: 0; width: 3px; height: 60px; background: linear-gradient(to bottom, var(--purple), transparent); }
+  .proof { background: var(--bg2); text-align: center; position: relative; overflow: hidden; }
+  .proof::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 400px; background: radial-gradient(ellipse, rgba(123,110,205,0.08), transparent 70%); }
+  .proof-inner { max-width: 1000px; margin: 0 auto; position: relative; }
+  .proof-quote { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 4vw, 48px); font-weight: 300; font-style: italic; line-height: 1.4; color: var(--text); margin-bottom: 40px; }
+  .proof-quote span { color: var(--purple-light); }
+  .proof-stats { display: flex; justify-content: center; gap: 64px; margin-top: 64px; flex-wrap: wrap; }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 52px; font-weight: 300; color: var(--text); line-height: 1; display: block; }
+  .stat-label { font-size: 12px; color: var(--text-muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 8px; display: block; }
+  .pricing-inner { max-width: 900px; margin: 0 auto; }
+  .pricing-header { text-align: center; margin-bottom: 64px; }
+  .pricing-header .section-desc { margin: 0 auto; text-align: center; }
+  .pricing-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .price-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 24px; padding: 48px 40px; position: relative; transition: transform 0.3s, box-shadow 0.3s; }
+  .price-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); }
+  .price-card.featured { border-color: rgba(123,110,205,0.4); background: linear-gradient(135deg, rgba(123,110,205,0.1), rgba(74,63,159,0.05)); }
+  .price-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--purple), #4A3F9F); color: white; font-size: 11px; font-weight: 500; padding: 5px 16px; border-radius: 100px; letter-spacing: 0.5px; white-space: nowrap; }
+  .price-tier { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 16px; }
+  .price-amount { font-family: 'Cormorant Garamond', serif; font-size: 56px; font-weight: 300; line-height: 1; margin-bottom: 8px; }
+  .price-period { font-size: 13px; color: var(--text-muted); margin-bottom: 32px; }
+  .price-save { font-size: 12px; color: var(--teal); font-weight: 500; }
+  .price-features { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 36px; }
+  .price-features li { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text-muted); }
+  .price-features li::before { content: ''; width: 16px; height: 16px; border-radius: 50%; background: rgba(107,197,184,0.2); flex-shrink: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8l3.5 3.5L13 4' stroke='%236BC5B8' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E"); }
+  .btn-plan { display: block; text-align: center; padding: 15px; border-radius: 12px; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.3s; }
+  .btn-plan-free { border: 1px solid var(--border); color: var(--text-muted); }
+  .btn-plan-free:hover { border-color: rgba(255,255,255,0.15); color: var(--text); background: rgba(255,255,255,0.04); }
+  .btn-plan-pro { background: linear-gradient(135deg, var(--purple), #4A3F9F); color: white; box-shadow: 0 8px 24px rgba(123,110,205,0.35); }
+  .btn-plan-pro:hover { transform: translateY(-1px); box-shadow: 0 12px 32px rgba(123,110,205,0.5); }
+  .cta-section { text-align: center; background: var(--bg2); position: relative; overflow: hidden; }
+  .cta-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(123,110,205,0.1), transparent 70%); }
+  .cta-inner { position: relative; max-width: 600px; margin: 0 auto; }
+  .cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 6vw, 68px); font-weight: 300; line-height: 1.1; margin-bottom: 24px; }
+  .cta-title em { font-style: italic; color: var(--purple-light); }
+  .cta-desc { font-size: 16px; color: var(--text-muted); line-height: 1.7; margin-bottom: 48px; }
+  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+  footer { padding: 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 24px; }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 400; letter-spacing: 2px; color: var(--text-muted); text-decoration: none; }
+  .footer-links { display: flex; gap: 32px; }
+  .footer-links a { color: var(--text-dim); text-decoration: none; font-size: 13px; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--text-muted); }
+  .footer-copy { font-size: 12px; color: var(--text-dim); }
+  .divider { width: 1px; height: 80px; background: linear-gradient(to bottom, transparent, var(--border), transparent); margin: 0 auto; }
+  .reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.8s ease, transform 0.8s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (max-width: 768px) {
+    nav { padding: 20px 24px; }
+    .nav-links { display: none; }
+    section { padding: 80px 24px; }
+    .features-inner { grid-template-columns: 1fr; gap: 48px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .pricing-cards { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; padding: 40px 24px; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+  }
 </style>
 </head>
 <body>
-
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 <nav>
-  <a href="index.html" class="logo">moodva</a>
+  <a href="#" class="nav-logo">MOODVA</a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#" class="nav-cta">Download Free</a>
+  </div>
 </nav>
-
 <section class="hero">
-  <div class="hero-icon">&#127793;</div>
-  <h1>Your mood, your growth.</h1>
-  <p>AI-powered mood tracking, habit building, and personal insights — all in one beautifully simple journal.</p>
-  <a class="cta" href="#">Coming Soon</a>
+  <div class="hero-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="stars" id="stars"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><span class="badge-dot"></span>AI-Powered · Now Available</div>
+    <h1 class="hero-title">Understand yourself<br><em>one mood at a time</em></h1>
+    <p class="hero-sub">Moodva tracks your emotions, builds your habits, and uses AI to find the patterns you'd never notice alone. Your personal growth journal, reimagined.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn-primary"><svg class="app-store-icon" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>Download on iOS</a>
+      <a href="#features" class="btn-secondary">See how it works →</a>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="scroll-line"></div><span>Scroll</span></div>
 </section>
-
-<section class="features-section">
-  <h2>Everything you need to grow</h2>
-  <div class="features">
-    <div class="feature-card">
-      <div class="icon">&#128522;</div>
-      <h3>Mood Tracking</h3>
-      <p>Log your daily mood with a single tap. See patterns over weeks and months with heatmaps.</p>
+<section class="features" id="features">
+  <div class="features-inner">
+    <div class="reveal">
+      <span class="section-label">Core Features</span>
+      <h2 class="section-title">Everything you need to<br><em>grow intentionally</em></h2>
+      <p class="section-desc">Four powerful tools, seamlessly woven into your daily routine. No overwhelm — just clarity.</p>
     </div>
-    <div class="feature-card">
-      <div class="icon">&#9989;</div>
-      <h3>Habit Building</h3>
-      <p>Build positive habits with streaks, reminders, and weekly progress tracking.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">&#128218;</div>
-      <h3>Journaling</h3>
-      <p>Write freely or use AI-generated prompts to reflect on your day.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">&#10024;</div>
-      <h3>AI Insights</h3>
-      <p>Get personalized weekly insights powered by Claude AI, based on your entries.</p>
+    <div class="features-grid reveal">
+      <div class="feature-card"><div class="feature-icon icon-purple">🌙</div><div class="feature-name">Mood Tracking</div><p class="feature-desc">Log your emotions with a single tap. Beautiful heatmaps reveal your patterns over weeks and months.</p></div>
+      <div class="feature-card"><div class="feature-icon icon-teal">✅</div><div class="feature-name">Habit Building</div><p class="feature-desc">Build positive habits with streaks, gentle reminders, and weekly progress that actually motivates.</p></div>
+      <div class="feature-card"><div class="feature-icon icon-coral">📖</div><div class="feature-name">Journaling</div><p class="feature-desc">Write freely or use AI-generated prompts that adapt to your mood and help you go deeper.</p></div>
+      <div class="feature-card"><div class="feature-icon icon-gold">✨</div><div class="feature-name">AI Insights</div><p class="feature-desc">Weekly insights powered by Claude AI, connecting your mood, habits, and entries into one story.</p></div>
     </div>
   </div>
 </section>
-
-<section class="pro-section">
-  <div class="pro-card">
-    <h2>Moodva Pro</h2>
-    <p>Unlock the full power of your personal growth journey</p>
-    <div class="pro-features">
-      <span class="pro-tag">Weekly AI insights</span>
-      <span class="pro-tag">Unlimited habits</span>
-      <span class="pro-tag">Ad-free</span>
-      <span class="pro-tag">Advanced stats</span>
+<div class="divider"></div>
+<section id="how">
+  <div class="how">
+    <div class="how-header reveal">
+      <span class="section-label">How It Works</span>
+      <h2 class="section-title">Three steps to <em>know yourself better</em></h2>
+      <p class="section-desc">Simple enough to do every day. Powerful enough to change how you see yourself.</p>
     </div>
-    <a class="pro-cta" href="#">Starting at $4.99/mo</a>
+    <div class="steps reveal">
+      <div class="step"><div class="step-accent"></div><span class="step-num">01</span><div class="step-title">Track Daily</div><p class="step-desc">Spend 2 minutes each day logging your mood, completing habits, and writing a few lines. Consistency is everything.</p></div>
+      <div class="step"><div class="step-accent" style="background: linear-gradient(to bottom, var(--teal), transparent);"></div><span class="step-num">02</span><div class="step-title">Discover Patterns</div><p class="step-desc">Watch your heatmaps fill up. See which habits correlate with your best days. Data becomes self-knowledge.</p></div>
+      <div class="step"><div class="step-accent" style="background: linear-gradient(to bottom, var(--coral), transparent);"></div><span class="step-num">03</span><div class="step-title">Get AI Insights</div><p class="step-desc">Every week, Moodva's AI reads your entries and surfaces surprising connections — things you never noticed about yourself.</p></div>
+    </div>
   </div>
 </section>
-
+<section class="proof">
+  <div class="proof-inner reveal">
+    <span class="section-label">Why Moodva</span>
+    <p class="proof-quote">"Most mood apps track <span>what</span> you feel.<br>Moodva helps you understand <span>why</span>."</p>
+    <div class="proof-stats">
+      <div class="stat-item"><span class="stat-num">2 min</span><span class="stat-label">Daily check-in time</span></div>
+      <div class="stat-item"><span class="stat-num">172</span><span class="stat-label">AI-powered prompts</span></div>
+      <div class="stat-item"><span class="stat-num">7+</span><span class="stat-label">Insight categories</span></div>
+      <div class="stat-item"><span class="stat-num">∞</span><span class="stat-label">Room to grow</span></div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+<section id="pricing">
+  <div class="pricing-inner">
+    <div class="pricing-header reveal">
+      <span class="section-label">Pricing</span>
+      <h2 class="section-title">Start free.<br><em>Grow with Pro.</em></h2>
+      <p class="section-desc">Moodva is free to start. Upgrade when you're ready to unlock the full power of AI insights.</p>
+    </div>
+    <div class="pricing-cards reveal">
+      <div class="price-card">
+        <div class="price-tier">Free</div>
+        <div class="price-amount">$0</div>
+        <div class="price-period">forever free</div>
+        <ul class="price-features"><li>Daily mood tracking</li><li>Up to 3 habits</li><li>Basic journaling</li><li>7-day mood history</li><li>Weekly summary</li></ul>
+        <a href="#" class="btn-plan btn-plan-free">Get Started Free</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-badge">✦ Most Popular</div>
+        <div class="price-tier">Pro Annual</div>
+        <div class="price-amount"><sup>$</sup>29<span style="font-size:28px;font-family:'DM Sans'">.99</span></div>
+        <div class="price-period">per year &nbsp;<span class="price-save">Save 50% vs monthly</span></div>
+        <ul class="price-features"><li>Everything in Free</li><li>Unlimited habits</li><li>Weekly AI insights</li><li>Full mood history</li><li>Advanced statistics</li><li>Ad-free experience</li><li>Priority support</li></ul>
+        <a href="#" class="btn-plan btn-plan-pro">Start 7-Day Free Trial</a>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta-section">
+  <div class="cta-inner reveal">
+    <span class="section-label">Get Started Today</span>
+    <h2 class="cta-title">Your growth journey starts<br><em>right now</em></h2>
+    <p class="cta-desc">Join thousands of people who are learning to understand themselves better, one day at a time.</p>
+    <div class="cta-buttons">
+      <a href="#" class="btn-primary"><svg class="app-store-icon" viewBox="0 0 24 24" fill="white"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>Download for iOS</a>
+      <a href="#" class="btn-secondary">View on App Store →</a>
+    </div>
+  </div>
+</section>
 <footer>
-  <p>&copy; 2026 Moodva. All rights reserved. &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy Policy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms of Service</a></p>
+  <a href="#" class="footer-logo">MOODVA</a>
+  <div class="footer-links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a><a href="mailto:parkbongjun23@gmail.com">Contact</a></div>
+  <span class="footer-copy">© 2026 Moodva. All rights reserved.</span>
 </footer>
-
+<script>
+  const cursor = document.getElementById('cursor');
+  const ring = document.getElementById('cursorRing');
+  let mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; cursor.style.left = mx - 4 + 'px'; cursor.style.top = my - 4 + 'px'; });
+  function animateRing() { rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12; ring.style.left = rx - 18 + 'px'; ring.style.top = ry - 18 + 'px'; requestAnimationFrame(animateRing); }
+  animateRing();
+  document.querySelectorAll('a, button').forEach(el => { el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2)'; ring.style.transform = 'scale(1.5)'; ring.style.borderColor = 'rgba(168,158,224,0.6)'; }); el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.transform = 'scale(1)'; ring.style.borderColor = 'rgba(168,158,224,0.4)'; }); });
+  const starsEl = document.getElementById('stars');
+  for (let i = 0; i < 80; i++) { const s = document.createElement('div'); s.className = 'star'; s.style.cssText = `left: ${Math.random() * 100}%; top: ${Math.random() * 100}%; --dur: ${2 + Math.random() * 4}s; animation-delay: ${Math.random() * 4}s; opacity: ${0.1 + Math.random() * 0.4}; width: ${Math.random() > 0.8 ? 2 : 1}px; height: ${Math.random() > 0.8 ? 2 : 1}px;`; starsEl.appendChild(s); }
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => { entries.forEach((e, i) => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); } }); }, { threshold: 0.1 });
+  reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
